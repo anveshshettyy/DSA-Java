@@ -10,13 +10,11 @@ class Solution {
                 res[1] = right;
                 return res;
             }
-
-            if(nums[left] == target) {
+            if(nums[left] == target) 
                 right--;
-            }
-            else if(nums[right] == target) {
+            else if(nums[right] == target) 
                 left++;
-            } else {
+            else {
                 left++;
                 right--;
             }
