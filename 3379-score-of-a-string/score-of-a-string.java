@@ -9,7 +9,7 @@ class Solution {
         // return sum;
 
         while(len-- > 1) {
-            sum += Math.abs(s.charAt(len - 1) - s.charAt(len));
+            sum += Math.abs(s.charAt(len) - s.charAt(len-1));
         }
         return sum;
     }
