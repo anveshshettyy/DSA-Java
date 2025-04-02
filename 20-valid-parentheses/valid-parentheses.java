@@ -9,12 +9,11 @@ class Solution {
                 if(stack.isEmpty()) {
                     return false;
                 } else {
-                    if(stack.peek() == '(' && c == ')') stack.pop();
-                    else if(stack.peek() == '{' && c == '}') stack.pop();
-                    else if(stack.peek() == '[' && c == ']') stack.pop();
-                     else {
-                    return false;
-                    }
+                    // if(stack.peek() == '(' && c == ')') stack.pop();
+                    // else if(stack.peek() == '{' && c == '}') stack.pop();
+                    // else if(stack.peek() == '[' && c == ']') stack.pop();
+                    if(stack.peek() == '(' && c == ')' || stack.peek() == '{' && c == '}' || stack.peek() == '[' && c == ']' ) stack.pop();
+                    else return false;
                 }
             }
         }
