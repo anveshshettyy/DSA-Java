@@ -3,12 +3,15 @@ class Solution {
         Arrays.sort(strs);
         String str1 = strs[0];
         String str2 = strs[strs.length - 1];
-        int index = 0;
-        while(index < str1.length()) {
-            if(str1.charAt(index) == str2.charAt(index)) index++;
-            else break;
+        String res = "";
+        for(int i=0; i<str1.length(); i++) {
+            if(str1.charAt(i) == str2.charAt(i)) {
+                res += str1.charAt(i);
+            } else {
+                break;
+            }
         }
 
-        return (index==0) ? "" : str1.substring(0, index);
+        return res;
     }
 }
