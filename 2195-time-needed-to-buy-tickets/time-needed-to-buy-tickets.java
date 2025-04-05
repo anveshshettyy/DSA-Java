@@ -7,7 +7,6 @@ class Solution {
                 count++;
             }
             p1++;
-            // if(tickets[k] == 0) break;
             if(p1 == tickets.length) p1 = 0;
         }
         return count;
