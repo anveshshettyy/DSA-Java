@@ -4,7 +4,6 @@ class Solution {
         while(tickets[k] != 0) {
             if(tickets[p1] != 0) {
                 tickets[p1] -= 1;
-                
                 count++;
             }
             p1++;
