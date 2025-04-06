@@ -6,8 +6,7 @@ class Solution {
                 tickets[p1] -= 1;
                 count++;
             }
-            p1++;
-            if(p1 == tickets.length) p1 = 0;
+            p1 = (p1 == tickets.length-1) ? 0 : ++p1;
         }
         return count;
     }
