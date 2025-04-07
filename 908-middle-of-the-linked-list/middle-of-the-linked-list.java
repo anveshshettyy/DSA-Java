@@ -16,6 +16,7 @@ class Solution {
             length++;
             x = x.next;
         }
+
         x = head;
         length = length / 2;
 
@@ -23,10 +24,8 @@ class Solution {
             x = x.next;
             length--;
         }
-
+        
         return x;
-
-
     }
 
     
