@@ -1,9 +1,5 @@
 class Solution {
-   static {
-        for (int i = 0; i < 500; i++) {
-            maxArea(new int[]{});
-        }
-    }
+   
 
     public static int maxArea(int[] height) {
         int area = 0;
