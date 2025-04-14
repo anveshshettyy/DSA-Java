@@ -24,7 +24,5 @@ class Solution {
     }
     public boolean hasPathSum(TreeNode root, int targetSum) {
         return sum(root, targetSum, 0);
-
-
     }
 }
