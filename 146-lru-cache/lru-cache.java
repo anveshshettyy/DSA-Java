@@ -10,7 +10,7 @@ class LRUCache {
     public int get(int key) {
         if(!map.containsKey(key)) return -1;
         queue.remove(key);
-        queue.offer(key);
+        queue.add(key);
         return map.get(key);
     }
     
@@ -21,7 +21,7 @@ class LRUCache {
             int lru = queue.poll();
             map.remove(lru);
         }
-        queue.offer(key);
+        queue.add(key);
         map.put(key, value);
     }
 }
