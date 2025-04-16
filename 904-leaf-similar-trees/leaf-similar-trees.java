@@ -14,19 +14,18 @@
  * }
  */
 class Solution {
-    Queue <Integer> queue = new LinkedList<>();
-    public void leaf(TreeNode root, List <Integer> list) {
-        if(root!=null) {
-            leaf(root.left, list);
-            if(root.left==null && root.right==null) list.add(root.val);
-            leaf(root.right, list);
+    static void helper(TreeNode root, List <Integer> list) {
+        if(root != null) {
+            helper(root.left, list);
+            if(root.left == null && root.right==null) list.add(root.val);
+            helper(root.right, list);
         }
-    }
-    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        List<Integer> l1 = new ArrayList<>();
-        List<Integer> l2 = new ArrayList<>();
-        leaf(root1, l1);
-        leaf(root2, l2);
-        return l1.equals(l2);
     } 
+    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        List<Integer> a = new ArrayList<>();
+        List<Integer> b = new ArrayList<>();
+        helper(root1, a);
+        helper(root2, b);
+        return a.equals(b) ? true : false;
+    }
 }
