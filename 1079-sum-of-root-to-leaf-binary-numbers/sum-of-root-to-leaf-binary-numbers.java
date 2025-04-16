@@ -22,7 +22,6 @@ class Solution {
         if(root.right == null && root.left == null) return currSum;
 
         return(sum(root.left, currSum) + sum(root.right, currSum));
-
     }
     public int sumRootToLeaf(TreeNode root) {
         return sum(root, 0);
