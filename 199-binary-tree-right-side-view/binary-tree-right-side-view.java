@@ -14,17 +14,17 @@
  * }
  */
 class Solution {
-    List <Integer> a = new ArrayList <>();
-    void dfs(TreeNode root, int depth) {
+    List<Integer> list = new ArrayList<>();
+    void helper(TreeNode root, int depth) {
         if(root == null) return;
 
-        if(depth == a.size()) a.add(root.val);
+        if(depth == list.size()) list.add(root.val);
 
-        dfs(root.right, depth + 1);
-        dfs(root.left, depth + 1);
+        helper(root.right, depth+1);
+        helper(root.left, depth+1);
     }
     public List<Integer> rightSideView(TreeNode root) {
-        dfs(root, 0);
-        return a;
+        helper(root, 0);
+        return list;
     }
 }
