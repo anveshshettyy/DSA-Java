@@ -14,21 +14,27 @@
  * }
  */
 class Solution {
-    ArrayList<Integer> nums = new ArrayList<>();
+    TreeNode prev = null;
+     int minDiff = Integer.MAX_VALUE;
+
     void minDiff(TreeNode root) {
         if(root!=null) {
             minDiff(root.left);
-            nums.add(root.val);
+            if(prev == null) prev = root;
+            else {
+                minDiff = Math.min(minDiff, (root.val - prev.val));
+                System.out.print(root.val+" ");
+                System.out.print(prev.val+" ");
+                System.out.print(minDiff+" ");
+                prev = root;
+                
+            }
             minDiff(root.right);
         }
         return;
     }
     public int minDiffInBST(TreeNode root) {
-        int min = Integer.MAX_VALUE;
         minDiff(root);
-        for(int i=1; i<nums.size(); i++) {
-            min = Math.min(min, (nums.get(i)-nums.get(i-1)));
-        }
-        return min;
+        return minDiff;
     }
 }
