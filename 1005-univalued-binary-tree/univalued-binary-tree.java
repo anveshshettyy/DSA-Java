@@ -23,9 +23,6 @@ class Solution {
     boolean helper(TreeNode root, int temp) {
         if(root==null) return true;
         if(root.val != temp) return false;
-        boolean left = helper(root.left, temp);
-        boolean right = helper(root.right, temp);
-
-        return(left && right);
+        return (helper(root.left, temp) && helper(root.right, temp));
     }
 }
