@@ -19,7 +19,7 @@ class Solution {
         if(root!=null) {
             inorder(root.left);
             nums.add(root.val);
-           inorder(root.right);
+            inorder(root.right);
         }
     }
     public boolean findTarget(TreeNode root, int k) {
