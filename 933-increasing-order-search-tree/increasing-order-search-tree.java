@@ -15,22 +15,27 @@
  */
 class Solution {
     TreeNode head=null;
-    ArrayList<Integer> nums = new ArrayList<>();
+    TreeNode temp = null;
+    TreeNode createHead(int val,TreeNode root) {
+        if(head==null) {
+            head = new TreeNode(val);
+            temp = head;
+        } 
+        else {
+            head.right = new TreeNode(val);
+            head = head.right;
+        }
+        return head;
+    }
     void inorder(TreeNode root) {
         if(root!=null) {
             inorder(root.left);
-            nums.add(root.val);
+            head = createHead(root.val, head);
             inorder(root.right);
         }
     }
     public TreeNode increasingBST(TreeNode root) {
         inorder(root);
-        if(head==null) head = new TreeNode(nums.get(0));
-        TreeNode temp = head;
-        for(int i=1; i<nums.size(); i++) {
-            head.right = new TreeNode(nums.get(i));
-            head = head.right;
-        }
         return temp;
     }
 }
