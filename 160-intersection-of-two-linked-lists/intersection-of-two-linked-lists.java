@@ -21,6 +21,6 @@ public class Solution {
             if(l2!=null) l2 = l2.next;
             else l2 = headA;
         }
-        return l1;
+        return l2;
     }
 }
