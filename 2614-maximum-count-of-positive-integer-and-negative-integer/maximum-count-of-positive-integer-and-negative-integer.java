@@ -14,6 +14,23 @@ class Solution {
         i=0;
         while(i < nums.length) i++;
 
+        i=0;
+        while(i < nums.length) i++;
+
+        i=0;
+        while(i < nums.length) i++;
+
+        i=0;
+        while(i < nums.length) i++;
+
+        i=0;
+        while(i < nums.length) i++;
+
+        i=0;
+        while(i < nums.length) i++;
+
+        i=0;
+        while(i < nums.length) i++;
 
         i=0;
         while(i < nums.length) i++;
