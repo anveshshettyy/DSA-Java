@@ -14,6 +14,7 @@ class Solution {
         if(head==null || head.next==null || k==0) return head;
         ListNode temp1 = head;
         ListNode temp2 = null;
+        
         int len = 0;
         while (temp1 != null) {
             len++;
@@ -23,17 +24,16 @@ class Solution {
         k = k % len;
         if (k == 0) return head;
 
-        int index = len - k -1;
+        int index = len-k-1;
         temp1 = head;
-        for (int i = 0; i < index; i++) {
-            temp1 = temp1.next;
-        }
+        for (int i = 0; i < index; i++) temp1 = temp1.next;
+        
         temp2 = temp1.next;
         temp1.next = null;
         ListNode res = temp2;
-        while (temp2.next != null) {
-            temp2 = temp2.next;
-        }
+
+        while (temp2.next != null) temp2 = temp2.next;
+        
         temp2.next = head;
         return res;
     }
