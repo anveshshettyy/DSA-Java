@@ -5,6 +5,7 @@ class Solution {
             sum += nums[i];
             while(sum >= target) {
                 min = Math.min(min, i-start+1);
+                if(min == 1)  return 1;
                 sum -= nums[start++];
             }
         }
