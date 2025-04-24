@@ -14,20 +14,14 @@
  * }
  */
 class Solution {
-    ArrayList<Integer> list = new ArrayList<>();
-    void Inorder(TreeNode root) {
-        if(root!=null) {
-            Inorder(root.left);
-            list.add(root.val);
-            Inorder(root.right);
-        }
-    }
     public int rangeSumBST(TreeNode root, int low, int high) {
-        Inorder(root);
+        if(root==null) return 0;
+
         int sum = 0;
-        for(int i:list) {
-            if(i>=low && i<=high) sum+= i;
-        }
+        if(root.val <= high && root.val >= low) sum += root.val;
+        if(root.val > low) sum += rangeSumBST(root.left, low, high);
+        if(root.val < high) sum += rangeSumBST(root.right, low, high);
+        
         return sum;
     }
 }
