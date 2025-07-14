@@ -7,12 +7,14 @@ class Solution {
         List<Integer> result = new ArrayList<>();
 
         int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+        int minVal = Integer.MAX_VALUE, maxVal = Integer.MIN_VALUE;
         for (int i = 0; i < matrix[0].length; i++) {
             max = Integer.MIN_VALUE;
             for (int j = 0; j < matrix.length; j++) {
                 // min = Math.min(min, matrix[i][j]);
                 max = Math.max(max, matrix[j][i]);
             }
+            minVal = Math.min(max, minVal);
             maxCol.add(max);
         }
 
@@ -21,6 +23,7 @@ class Solution {
             for (int j = 0; j < matrix[0].length; j++) {
                 min = Math.min(min, matrix[i][j]);
             }
+            maxVal = Math.max(min, maxVal);
             minRow.add(min);
         }
 
@@ -39,9 +42,14 @@ class Solution {
         int resMin = Collections.min(maxCol);
         int resMax = Collections.max(minRow);
 
-        if(resMin == resMax) {
-            result.add(resMin);
-                return result;
+        // if(resMin == resMax) {
+        //     result.add(resMin);
+        //     return result;
+        // }
+
+        if(minVal == maxVal) {
+            result.add(minVal);
+            return result;
         }
 
         return result;
