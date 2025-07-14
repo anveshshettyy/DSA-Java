@@ -29,18 +29,13 @@ class Solution {
             }
         }
 
-        String binary = "";
         int sum = 0;
         for (int i = 0; i < grid.length; i++) {
-            binary = "";
+            StringBuilder binary = new StringBuilder();
             for (int j = 0; j < grid[0].length; j++) {
-                binary = binary + String.valueOf(grid[i][j]);
+                binary.append(grid[i][j]);
             }
-            // System.out.println(binary);
-            int decimal = Integer.parseInt(binary, 2);
-            sum += decimal;
-            // System.out.println(decimal);
-
+            sum += Integer.parseInt(binary.toString(), 2);
         }
 
         return sum;
