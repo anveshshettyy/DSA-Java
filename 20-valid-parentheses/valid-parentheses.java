@@ -1,22 +1,29 @@
 class Solution {
     public boolean isValid(String s) {
-        Stack <Character> stack = new Stack<>();
-        for(int i=0; i< s.length(); i++) {
-            char c = s.charAt(i);
-            if(c == '(' || c == '[' || c == '{') {
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '[' || c == '{') {
                 stack.push(c);
-            } else if(c == ')' || c == ']' || c =='}') {
-                if(stack.isEmpty()) {
-                    return false;
-                } else {
-                    // if(stack.peek() == '(' && c == ')') stack.pop();
-                    // else if(stack.peek() == '{' && c == '}') stack.pop();
-                    // else if(stack.peek() == '[' && c == ']') stack.pop();
-                    if(stack.peek() == '(' && c == ')' || stack.peek() == '{' && c == '}' || stack.peek() == '[' && c == ']' ) stack.pop();
-                    else return false;
+                continue;
+            } else {
+                if (stack.isEmpty()) {
+                    if (c == ')' || c == ']' || c == '}')
+                        return false;
                 }
+
+                if (c == ')' && (stack.peek() == '('))
+                    stack.pop();
+                else if (c == ']' && (stack.peek() == '['))
+                    stack.pop();
+                else if (c == '}' && (stack.peek() == '{'))
+                    stack.pop();
+                else return false;
             }
+
+            // else return false;
         }
-        return (stack.size() == 0) ? true : false;
+
+        return (stack.isEmpty() == true) ? true : false;
     }
 }
