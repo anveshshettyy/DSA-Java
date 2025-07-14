@@ -1,27 +1,24 @@
 class Solution {
     public int deleteGreatestValue(int[][] grid) {
-        int res = 0;
-        for (int i = 0; i < grid.length; i++) {
-            ArrayList<Integer> list = new ArrayList<>();
-            for (int j = 0; j < grid[0].length; j++) {
-                list.add(grid[i][j]);
-            }
-            Collections.sort(list);
-            int k = 0;
-            for (int j = 0; j < grid[0].length; j++) {
-                grid[i][j] = list.get(k++);
-            }
+        int m = grid.length;
+        int n = grid[0].length;
+
+        for (int i = 0; i < m; i++) {
+            Arrays.sort(grid[i]);
+            // reverse(grid[i]); 
         }
 
         int sum = 0;
-        for(int i=0; i<grid[0].length; i++) {
+        for (int j = 0; j < n; j++) {
             int max = 0;
-            for(int j=0; j<grid.length; j++) {
-                max = Math.max(max, grid[j][i]);
+            for (int i = 0; i < m; i++) {
+                max = Math.max(max, grid[i][j]);
             }
             sum += max;
         }
 
         return sum;
     }
+
+    
 }
