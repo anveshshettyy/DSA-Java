@@ -24,6 +24,6 @@ class Solution {
             // else return false;
         }
 
-        return (stack.isEmpty() == true) ? true : false;
+        return (stack.isEmpty()) ? true : false;
     }
 }
