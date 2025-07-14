@@ -27,13 +27,21 @@ class Solution {
         System.out.println(maxCol);
         System.out.println(minRow);
 
-        for (int i = 0; i < maxCol.size(); i++) {
-            for (int j = 0; j < minRow.size(); j++) {
-                if (maxCol.get(i).equals(minRow.get(j))) {
-                    result.add(minRow.get(j));
-                    return result;
-                }
-            }
+        // for (int i = 0; i < maxCol.size(); i++) {
+        //     for (int j = 0; j < minRow.size(); j++) {
+        //         if (maxCol.get(i).equals(minRow.get(j))) {
+        //             result.add(minRow.get(j));
+        //             return result;
+        //         }
+        //     }
+        // }
+
+        int resMin = Collections.min(maxCol);
+        int resMax = Collections.max(minRow);
+
+        if(resMin == resMax) {
+            result.add(resMin);
+                return result;
         }
 
         return result;
