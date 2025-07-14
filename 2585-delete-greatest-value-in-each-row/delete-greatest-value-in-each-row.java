@@ -5,7 +5,7 @@ class Solution {
 
         for (int i = 0; i < m; i++) {
             Arrays.sort(grid[i]);
-            // reverse(grid[i]); 
+            reverse(grid[i]); 
         }
 
         int sum = 0;
@@ -18,6 +18,17 @@ class Solution {
         }
 
         return sum;
+    }
+
+    private void reverse(int[] row) {
+        int left = 0, right = row.length - 1;
+        while (left < right) {
+            int temp = row[left];
+            row[left] = row[right];
+            row[right] = temp;
+            left++;
+            right--;
+        }
     }
 
     
