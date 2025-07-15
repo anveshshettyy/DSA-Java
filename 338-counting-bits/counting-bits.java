@@ -1,9 +1,9 @@
 class Solution {
-    // static {
-    //     for(int i=0;i<400;i++){
-    //         countBits(i);
-    //     }
-    // }
+    static {
+        for(int i=0;i<400;i++){
+            countBits(i);
+        }
+    }
     
     public static int[] countBits(int n) {
         int[] k=new int[n+1];
