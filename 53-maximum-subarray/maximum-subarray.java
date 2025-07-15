@@ -4,7 +4,10 @@ class Solution {
         for(int i:nums) {
             if(sum < 0) sum = 0;
             sum += i;
-            maxSum = Math.max(sum, maxSum);
+            // maxSum = Math.max(sum, maxSum);
+            if(sum > maxSum) {
+                maxSum = sum;
+            }
         }
         return maxSum;
     }
