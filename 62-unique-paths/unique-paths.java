@@ -1,36 +1,13 @@
 class Solution {
+    public int countPaths(int top, int down, int m, int n, int dp[][]) {
+        if(top >= m || down >= n) return 0;
+        if(top == m-1 && down == n-1 ) return 1;
+        if(dp[top][down] != 0) return dp[top][down];
+        dp[top][down] = countPaths(top+1, down, m, n, dp) + countPaths(top, down+1, m, n, dp);
+        return dp[top][down];
+    }
     public int uniquePaths(int m, int n) {
-        // int m = 3, n = 2;
-
-        if(m==1 || n==1) return 1;
-
-        int grid[][] = new int[m][n];
-
-        for (int j = 0; j < n; j++) {
-            grid[m - 1][j] = 1;
-        }
-
-        for (int j = 0; j < m; j++) {
-            grid[j][n - 1] = 1;
-        }
-
-        // grid[m-2][n-1] = 1;
-
-        for (int i = m - 2; i >= 0; i--) {
-            for (int j = n - 2; j >= 0; j--) {
-                grid[i][j] = grid[i+1][j] + grid[i][j + 1];
-            }
-        }
-
-        int sum = grid[0][1] + grid[1][0];
-
-        // for (int i = 0; i < m; i++) {
-        //     for (int j = 0; j < n; j++) {
-        //         System.out.print(grid[i][j] + " ");
-        //     }
-        //     System.out.println();
-        // }
-
-        return sum;
+        int dp[][] = new int[m][n];
+        return countPaths(0, 0, m, n, dp);
     }
 }
