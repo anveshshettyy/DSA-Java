@@ -1,7 +1,7 @@
 class Solution {
     static {
         for(int i=0;i<400;i++){
-            countBits(0);
+            countBits(i);
         }
     }
     
