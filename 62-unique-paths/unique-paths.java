@@ -1,13 +1,21 @@
 class Solution {
-    public int countPaths(int i, int j, int m, int n, int dp[][]) {
-        if(i >= m || j >= n) return 0;
-        if(i == m-1 && j == n-1 ) return 1;
-        if(dp[i][j] != 0) return dp[i][j];
-        dp[i][j] = countPaths(i+1, j, m, n, dp) + countPaths(i, j+1, m, n, dp);
-        return dp[i][j];
-    }
     public int uniquePaths(int m, int n) {
-        int dp[][] = new int[m][n];
-        return countPaths(0, 0, m, n, dp);
+        // int m = 3, n = 2;
+
+        if (m == 1 || n == 1)
+            return 1;
+        int grid[][] = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            Arrays.fill(grid[i], 1);
+        }
+
+        for (int i = m - 2; i >= 0; i--) {
+            for (int j = n - 2; j >= 0; j--) {
+                grid[i][j] = grid[i + 1][j] + grid[i][j + 1];
+            }
+        }
+
+        return grid[0][0];
+
     }
 }
