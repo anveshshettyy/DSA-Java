@@ -15,13 +15,6 @@ class Solution {
             }
         }
 
-        for(int i=0; i<m; i++) {
-            for(int j=0; j<n; j++) {
-                System.out.print(matrix[i][j]+" ");
-            }
-            System.out.println();
-        }
-
         int min = Integer.MAX_VALUE;
         for(int j=0; j<n; j++) {
             min = Math.min(min, matrix[m-1][j]);
