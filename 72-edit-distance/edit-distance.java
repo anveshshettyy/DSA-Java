@@ -21,13 +21,6 @@ class Solution {
             }
         }
 
-        for(int i=0; i<=l1; i++) {
-            for(int j=0; j<=l2; j++) {
-                System.out.print(dp[i][j]+" ");
-            }
-            System.out.println();
-        }
         return dp[l1][l2];
-
     }
 }
