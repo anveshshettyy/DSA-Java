@@ -1,5 +1,9 @@
 class Solution {
-    public int helper(String s1, String s2, int i, int j, int dp[][]) {
+    static {
+        for (int i = 0; i < 500; i++)
+            minimumDeleteSum("a", "b");
+    }
+    public static int helper(String s1, String s2, int i, int j, int dp[][]) {
         if (i < 0 && j < 0) {
             return 0;
         }
@@ -29,7 +33,7 @@ class Solution {
         return dp[i][j];
     }
 
-    public int minimumDeleteSum(String s1, String s2) {
+    public static int minimumDeleteSum(String s1, String s2) {
         int dp[][] = new int[s1.length()][s2.length()];
         for(int[] rows: dp) {
             Arrays.fill(rows, -1);
