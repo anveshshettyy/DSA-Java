@@ -16,7 +16,6 @@ class Solution {
                 count++;
             }
         }
-        System.out.println(map);
         return count;
     }
 }
