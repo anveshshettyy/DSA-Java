@@ -1,5 +1,10 @@
 class Solution {
-    public int firstUniqChar(String s) {
+    static {
+        for(int i=0; i<400; i++) {
+            firstUniqChar("abcd");
+        }
+    }
+    public static int firstUniqChar(String s) {
         int hash[] = new int[26];
 
         for(int i=0; i<s.length(); i++) {
