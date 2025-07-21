@@ -14,7 +14,6 @@ class Solution(object):
             if ratings[i] > ratings[i+1]:
                 arr[i] = max(arr[i], arr[i+1]+1)
 
-        s = sum(arr)
+        return sum(arr)
 
-        return s
         
