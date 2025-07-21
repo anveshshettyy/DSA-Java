@@ -11,5 +11,5 @@ class Solution(object):
             maxReach = max(maxReach, nums[i]+i)
             if maxReach >= len(nums)-1:
                 return True
-        return False
+        return True
         
