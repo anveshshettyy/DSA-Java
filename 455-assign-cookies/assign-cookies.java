@@ -5,9 +5,9 @@ class Solution {
         int i = 0, j = 0;
         while(i<g.length && j<s.length) {
             if(g[i] <= s[j])
-                i++;
-                
-            j++;
+                i+=1;
+
+            j+=1;
         }
         return i;
     }
