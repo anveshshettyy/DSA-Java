@@ -6,6 +6,7 @@ class Solution {
         while(i<g.length && j<s.length) {
             if(g[i] <= s[j])
                 i++;
+                
             j++;
         }
         return i;
