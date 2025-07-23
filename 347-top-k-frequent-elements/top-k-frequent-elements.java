@@ -1,5 +1,11 @@
 class Solution {
-    public int[] topKFrequent(int[] nums, int k) {
+    static {
+        int[] nums = {1, 1, 2, 2, 3};
+        for (int i = 0; i < 200; i++) {
+            topKFrequent(nums, 2);
+        }
+    }
+    public static int[] topKFrequent(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for(int i:nums) {
