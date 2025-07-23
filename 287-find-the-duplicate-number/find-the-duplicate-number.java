@@ -5,7 +5,6 @@ class Solution {
             if(dp[i] == -1) return i;
             dp[i] = -1;
         }
-
         return -1;
     }
 }
