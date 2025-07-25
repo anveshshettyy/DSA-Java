@@ -6,8 +6,6 @@ class Solution {
                 return diff;
         });
 
-        
-
         for(int i:arr) {
             heap.add(i);
             if (heap.size() > k) {
