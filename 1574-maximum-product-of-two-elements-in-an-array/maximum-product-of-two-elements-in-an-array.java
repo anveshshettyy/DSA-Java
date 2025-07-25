@@ -1,9 +1,12 @@
 class Solution {
     public int maxProduct(int[] nums) {
-        PriorityQueue<Integer> heap = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
 
         for(int i:nums) {
             heap.add(i);
+            if(heap.size() > 2) {
+                heap.poll();
+            } 
         }
 
         int a = heap.poll();
