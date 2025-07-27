@@ -16,8 +16,6 @@ class Solution {
             }
         }
 
-        System.out.println(map);
-
         return res;
     }
 }
