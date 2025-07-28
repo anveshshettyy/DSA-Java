@@ -29,8 +29,8 @@ class Solution {
 
         visit[node] = 1; 
 
-        for (int neighbor : adj.get(node)) {
-            if (dfs(neighbor, adj, visit)) {
+        for (int i : adj.get(node)) {
+            if (dfs(i, adj, visit)) {
                 return true;
             }
         }
