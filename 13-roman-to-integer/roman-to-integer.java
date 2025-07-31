@@ -1,45 +1,54 @@
 class Solution {
     public int romanToInt(String s) {
-        int res = 0;
-        // for(int i=0; i<s.length(); i++) {
-        //     if(s.charAt(i) == 'I') res += 1;
-        //     if(s.charAt(i) == 'V') {
-        //         if(s.charAt(i-1) == 'I') res += 4;
-        //         else  res += 5;
-        //     } 
-        //     if(s.charAt(i) == 'X') res += 10;
-        //     if(s.charAt(i) == 'L') res += 50;
-        //     if(s.charAt(i) == 'C') res += 100;
-        //     if(s.charAt(i) == 'D') res += 500;
-        //     if(s.charAt(i) == 'M') res += 1000;
-        // }
+        int sum = 0;
+        for(int i=0; i<s.length(); i++) {
+            char c = s.charAt(i);
 
-        int i = 0;
-        while(i < s.length()) {
-            if(s.charAt(i) == 'I') {
-                if(i+1 < s.length() &&  s.charAt(i+1) == 'V') {res += 4; i++;} 
-                else if( i+1 < s.length() && s.charAt(i+1) == 'X') {res += 9; i++;}
-                else res += 1;
+            if(c=='I') sum += 1;
+            else if(c=='V'){
+                if(i>0 && s.charAt(i-1) == 'I') {
+                    sum += 3;
+                } else {
+                    sum += 5;
+                }
             } 
-            else if(s.charAt(i) == 'V') res += 5;
-            else if(s.charAt(i) == 'X' ) {
-                if( i+1 < s.length() &&s.charAt(i+1) == 'L') {res += 40; i++;} 
-                else if(i+1 < s.length() && s.charAt(i+1) == 'C'  ) {res += 90; i++;}
-                else res += 10;
+            else if(c=='X') {
+                if(i>0 && s.charAt(i-1) == 'I') {
+                    sum += 8;
+                } else {
+                    sum += 10;
+                }
+            } 
+            else if(c=='L') {
+                if(i>0 && s.charAt(i-1) == 'X') {
+                    sum += 30;
+                } else {
+                    sum += 50;
+                }
             }
-            else if(s.charAt(i) == 'L') res += 50;
-            else if(s.charAt(i) == 'C') {
-                if( i+1 < s.length() && s.charAt(i+1) == 'D'  ) {res += 400; i++;} 
-                else if( i+1 < s.length() && s.charAt(i+1) == 'M' ) {res += 900; i++;}
-                else res += 100;
+            else if(c=='C') {
+                if(i>0 && s.charAt(i-1) == 'X') {
+                    sum += 80;
+                } else {
+                    sum += 100;
+                }
             }
-            else if(s.charAt(i) == 'D') res += 500;
-            else if(s.charAt(i) == 'M') res += 1000;
-            i++;
+            else if(c=='D') {
+                if(i>0 && s.charAt(i-1) == 'C') {
+                    sum += 300;
+                } else {
+                    sum += 500;
+                }
+            } 
+            else if(c=='M') {
+                if(i>0 && s.charAt(i-1) == 'C') {
+                    sum += 800;
+                } else {
+                    sum += 1000;
+                }
+            } 
         }
 
-        
-
-        return res;
+        return sum;
     }
 }
