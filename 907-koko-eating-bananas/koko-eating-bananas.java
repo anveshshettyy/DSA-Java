@@ -1,26 +1,29 @@
 class Solution {
-    static int CalculateHrs(int arr[], int hr) {
-        int totalHrs = 0;
-        for(int i=0; i<arr.length; i++) {
-            totalHrs += (int) Math.ceil((double) arr[i] / hr);
+    public int hoursToEat(int[] piles, int maxPile) {
+        int k = 0;
+        for(int pile: piles) {
+            k += (pile + maxPile - 1) / maxPile;
         }
-        return totalHrs;
+        return k;
     }
     public int minEatingSpeed(int[] piles, int h) {
-        int left = 1, right = 0;
-        for (int pile : piles) {
-            right = Math.max(right, pile);
+        int maxPile = 0;
+        for(int pile: piles) {
+            maxPile = Math.max(pile, maxPile);
         }
-       
-        while(left<right) {
+
+        if(piles.length == h) return maxPile;
+        int left = 1, right = maxPile;
+        while(left < right) {
             int mid = left + (right - left) / 2;
-            int totalHrs = CalculateHrs(piles, mid);
-            if(totalHrs <= h) {
+            int hrs = hoursToEat(piles, mid);
+            if(hrs <= h) {
                 right = mid;
             } else {
-                left = mid + 1;
+                left = mid+1;
             }
         }
-        return left; 
+
+        return left;
     }
 }
