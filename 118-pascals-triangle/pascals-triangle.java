@@ -16,8 +16,6 @@ class Solution {
                 res.get(i).set(j, val);
             }
         }
-
         return res;
-
     }
 }
