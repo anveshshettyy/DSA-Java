@@ -8,10 +8,10 @@ class Solution {
             }
         }
 
-        int res = 0;
-        for(int i=0; i<k; i++) {
-            res = minHeap.poll();
+        for(int i=0; i<k-1; i++) {
+            minHeap.poll();
         }
-        return res;
+
+        return minHeap.poll();
     }
 }
