@@ -1,21 +1,27 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        if (s1.length() > s2.length()) return false;
         int k = s1.length();
+        if(s2.length() < k) return false;
 
-        char[] ch = s1.toCharArray();
-        Arrays.sort(ch);
-        StringBuilder sortedS1 = new StringBuilder(new String(ch));
-        StringBuilder str2 = new StringBuilder(s2);
-    
-        for(int i=0; i <= str2.length() - k; i++) {
-            char[] temp = str2.substring(i, i+k).toCharArray();
-            Arrays.sort(temp);
-            String sortedS2 = new String(temp);
+        int count1[] = new int[26];
+        int count2[] = new int[26];
 
-            if(sortedS2.equals(sortedS1.toString())) {
-                return true;
-            }
+        for(char c: s1.toCharArray()) {
+            count1[c-'a']++;
+        }
+
+        for(int i=0; i<k; i++) {
+            char c = s2.charAt(i);
+            count2[c-'a']++;
+        }
+
+        if (Arrays.equals(count1, count2)) return true;
+
+        for(int i=k; i<s2.length(); i++) {
+            char c = s2.charAt(i);
+            count2[c-'a']++;
+            count2[s2.charAt(i-k) - 'a']--;
+            if(Arrays.equals(count1, count2)) return true;
         }
 
         return false;
