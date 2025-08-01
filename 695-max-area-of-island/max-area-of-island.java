@@ -1,26 +1,28 @@
 class Solution {
-    public int dfs(int[][] grid, int i, int j, int row, int col) {
-        if(i<0 || i>row-1 || j<0 || j>col-1 || grid[i][j] != 1) return 0;
+    public int dfs(int i, int j, int n, int m, int[][] grid) {
+        if(i<0 || i>=n || j<0 || j>=m || grid[i][j] != 1) {
+            return 0;
+        }
 
         int count = 1;
         grid[i][j] = 0;
 
-        count += dfs(grid, i-1, j, row, col);
-        count += dfs(grid, i+1, j, row, col);
-        count += dfs(grid, i, j-1, row, col);
-        count += dfs(grid, i, j+1, row, col);
+        count += dfs(i+1, j, n, m, grid);
+        count += dfs(i-1, j, n, m, grid);
+        count += dfs(i, j+1, n, m, grid);
+        count += dfs(i, j-1, n, m, grid);
 
         return count;
     }
     public int maxAreaOfIsland(int[][] grid) {
-        int row = grid.length; 
-        int col = grid[0].length;
+        int n = grid.length;
+        int m = grid[0].length;
         int maxCount = 0;
 
-        for(int i=0; i<row; i++) {
-            for(int j=0; j<col; j++) {
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<m; j++) {
                 if(grid[i][j] == 1) {
-                    int count = dfs(grid, i, j, row, col);
+                    int count = dfs(i, j, n, m, grid);
                     maxCount = Math.max(count, maxCount);
                 }
             }
