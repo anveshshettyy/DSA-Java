@@ -11,8 +11,6 @@ class Solution {
 
         int j = 0;
 
-        System.out.println(map);
-
         for(Map.Entry<Integer, Integer> entry: map.entrySet()) {
             int freq = entry.getValue();
             int key = entry.getKey();
