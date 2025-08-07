@@ -1,31 +1,11 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        for(int num: nums) {
-            if(map.containsKey(num) && map.get(num) == 2) {
-                continue;
-            }
-            map.put(num, map.getOrDefault(num, 0)+1);
-        }
-
-        int j = 0;
-
-        for(Map.Entry<Integer, Integer> entry: map.entrySet()) {
-            int freq = entry.getValue();
-            int key = entry.getKey();
-
-            while(freq-- > 0) {
-                nums[j++] = key;
+        int i=2; 
+        for(int j=2; j<nums.length; j++) {
+            if(nums[j] != nums[i-2]) {
+                nums[i++] = nums[j];
             }
         }
-
-        for(int i=j; i<nums.length; i++) {
-            nums[i] = Integer.MAX_VALUE;
-        }
-
-        Arrays.sort(nums);
-
-        return j;
+        return i;
     }
 }
