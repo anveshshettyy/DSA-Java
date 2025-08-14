@@ -13,8 +13,9 @@ class Solution {
         }
         if(maxHeap.isEmpty()) return "";
         int largest = maxHeap.poll();
-        String s = "";
-        s += largest;
-        return s += s.repeat(2);
+        StringBuilder result = new StringBuilder();
+
+        for(int i=0; i<3; i++) result.append(largest);
+        return result.toString();
     }
 }
