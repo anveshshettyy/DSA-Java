@@ -1,8 +1,8 @@
 class Solution {
     public boolean isPowerOfFour(int n) {
-        for(long i=0; i*i<=n; i++) {
-            if((long)Math.pow(4, i) == n) return true;
+        while(n > 0 &&n%4 == 0) {
+            n /= 4;
         }
-        return false;
+        return (n==1) ? true : false; 
     }
 }
