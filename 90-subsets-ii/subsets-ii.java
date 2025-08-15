@@ -1,8 +1,8 @@
 class Solution {
     List <List<Integer>> res = new ArrayList<>();
     public void fun(int[] nums, ArrayList<Integer> li, int pos) {
-        if(pos >= nums.length) {
-            if(!res.contains(li)) res.add(new ArrayList<>(li));
+        if(pos == nums.length) {
+            res.add(new ArrayList<>(li));
             return;
         }
 
@@ -14,9 +14,9 @@ class Solution {
         while(nextPos<nums.length-1 && nums[nextPos]==nums[nextPos+1]) {
             nextPos++;
         }
-        fun(nums, li,pos+1);
+        fun(nums, li,nextPos+1);
     }
-    
+
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
         fun(nums, new ArrayList<>(), 0);
