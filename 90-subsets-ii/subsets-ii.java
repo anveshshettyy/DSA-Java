@@ -1,23 +1,20 @@
 class Solution {
-    public ArrayList <List<Integer>> list = new ArrayList<>();
-    public void subset(int[] nums, ArrayList<Integer> arr, int pos, int n) {
-        if(pos == n) {
-            if(!list.contains(arr)) {
-                list.add(new ArrayList(arr));
-            }
+    List <List<Integer>> res = new ArrayList<>();
+    public void fun(int[] nums, ArrayList<Integer> li, int pos) {
+        if(pos >= nums.length) {
+            if(!res.contains(li)) res.add(new ArrayList<>(li));
             return;
         }
 
-        arr.add(nums[pos]);
-        subset(nums, arr, pos+1, n);
+        li.add(nums[pos]);
+        fun(nums, li, pos+1);
 
-        arr.remove(arr.size()-1);
-        subset(nums, arr, pos+1, n);
+        li.remove(li.size()-1);
+        fun(nums, li,pos+1);
     }
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
-        ArrayList <Integer> arr = new ArrayList<>();
-        subset(nums, arr, 0, nums.length);
-        return list;
+        fun(nums, new ArrayList<>(), 0);
+        return res;
     }
 }
