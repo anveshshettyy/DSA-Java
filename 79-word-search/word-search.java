@@ -7,10 +7,10 @@ class Solution {
         char temp = board[i][j];
         board[i][j] = '#';
 
-        boolean down = dfs(board, word, i+1, j, pos+1); //down
-        boolean up = dfs(board, word, i-1, j, pos+1); //up
-        boolean left = dfs(board, word, i, j-1, pos+1); //left
-        boolean right = dfs(board, word, i, j+1, pos+1); //right
+        boolean down = dfs(board, word, i+1, j, pos+1); 
+        boolean up = dfs(board, word, i-1, j, pos+1); 
+        boolean left = dfs(board, word, i, j-1, pos+1); 
+        boolean right = dfs(board, word, i, j+1, pos+1); 
 
         board[i][j] = temp;
 
