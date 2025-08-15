@@ -8,10 +8,15 @@ class Solution {
 
         li.add(nums[pos]);
         fun(nums, li, pos+1);
-
         li.remove(li.size()-1);
+
+        int nextPos = pos;
+        while(nextPos<nums.length-1 && nums[nextPos]==nums[nextPos+1]) {
+            nextPos++;
+        }
         fun(nums, li,pos+1);
     }
+    
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
         fun(nums, new ArrayList<>(), 0);
