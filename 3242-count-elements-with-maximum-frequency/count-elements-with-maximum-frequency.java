@@ -18,9 +18,7 @@ class Solution {
                 res++;
             }
         }
-
-        System.out.println(maxNum);
-        System.out.println(map);
+        
         return res*maxNum;
     }
 }
