@@ -32,7 +32,6 @@ class Solution {
             res = res.next;
         }
 
-        System.out.println(li);
         return dummy.next;
     }
 }
