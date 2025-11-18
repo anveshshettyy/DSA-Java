@@ -1,3 +1,4 @@
+
 class Solution {
     public int[] frequencySort(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -5,21 +6,28 @@ class Solution {
             map.put(i, map.getOrDefault(i, 0)+1);
         }
 
-        List<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(map.entrySet());
-        entryList.sort((a, b) -> {
-            if (a.getValue().equals(b.getValue())) {
-                return b.getKey() - a.getKey(); 
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>(
+            (a,b) -> {
+                int fa = map.get(a);
+                int fb = map.get(b);
+                if(fa == fb) return b - a;
+                return fa - fb;
             }
-            return a.getValue() - b.getValue();
-        });
+        );
 
-        int i = 0;
-        for (Map.Entry<Integer, Integer> e : entryList) {
-            int freq = e.getValue();
-            while (freq-- > 0) {
-                nums[i++] = e.getKey();
+        for(int i: map.keySet()) {
+            minHeap.add(i);
+        }
+
+        int j=0;
+        while(!minHeap.isEmpty()) {
+            int num = minHeap.poll();
+            for(int i=0; i<map.get(num); i++) {
+                nums[j] = num;
+                j++;
             }
         }
+
         return nums;
     }
 }
