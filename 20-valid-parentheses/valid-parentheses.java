@@ -18,6 +18,11 @@ class Solution {
                 }
             }
         } 
-        return st.isEmpty() ? true : false;
+        if(st.isEmpty()) {
+            return true;
+        } else {
+        return false;
+        }
+        
     }
 }
