@@ -13,8 +13,6 @@ class Solution {
                 return count;
             }
         }
-
-        System.out.println(sum);
-        return 2;
+        return 0;
     }
 }
