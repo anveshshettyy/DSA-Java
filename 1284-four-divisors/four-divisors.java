@@ -1,31 +1,26 @@
 class Solution {
     public int sumFourDivisors(int[] nums) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        HashSet<Integer> set = new HashSet<>();
-        int count = 0, sum = 0, tsum = 0;
-        for(int num: nums) {
-            sum = 0; count = 0;
-            if(set.contains(num)) continue;
-            if(map.containsKey(num)) {
-                tsum += map.get(num);
-                continue;
-            }
-
-            for(int i=1; i<=num; i++) {
-                if(num%i==0) {
-                    sum += i;
+        int totalsum = 0;
+        for(int num:nums){
+            int count =0;
+            int sum =0;
+            for(int i=1;i*i<=num;i++){
+                if(num%i==0){
                     count++;
-                }
-                if (count > 4) {
-                    set.add(num);
-                    break;
+                    sum+=i;
+                    if(i!=num/i){
+                        count++;
+                        sum+=num/i;
+                    }
+                    if(count>4){
+                        break;
+                    }
                 }
             }
-            if(count == 4) {
-                tsum += sum;
-                map.put(num, sum);
+            if(count==4){
+                totalsum+=sum;
             }
         }
-        return tsum;
+        return totalsum;
     }
 }
