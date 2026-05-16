@@ -9,6 +9,7 @@ class Solution {
                     count++;
                 }
             }
+            if(count >= strs[i].length()) return count;
         }
         return count;
         
