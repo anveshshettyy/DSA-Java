@@ -6,8 +6,6 @@ class Solution {
             else if(c == 'R')count -= 1;
             else underscore_count += 1;
         }
-
-        System.out.println(underscore_count);
         return Math.abs(count) + underscore_count;
     }
 }
