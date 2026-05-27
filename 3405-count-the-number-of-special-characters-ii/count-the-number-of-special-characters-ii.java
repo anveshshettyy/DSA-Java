@@ -11,7 +11,6 @@ class Solution {
                     letters[c - 'a'] = 1;
                 }
             } else if (c >= 'A' && c <= 'Z' && letters[(c - 'a') + 32] == 1) {
-                System.out.println(c);
                 letters[(c - 'a') + 32] = 2;
             } else if (c >= 'A' && c <= 'Z' && letters[(c - 'a') + 32] == 0) {
                 letters[(c - 'a') + 32] = -100;
