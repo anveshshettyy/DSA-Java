@@ -6,6 +6,8 @@ class Solution {
             if(cost <= coins) {
                 coins -= cost;
                 res++;
+            } else {
+                break;
             }
         }
         return res;
