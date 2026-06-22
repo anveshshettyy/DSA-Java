@@ -6,7 +6,7 @@ class Solution {
             arr[c-'a']++;
         }
 
-        for(int i=0; i<26; i++) {
+        for(int i=0; i<20; i++) {
             if(i == 1 || i == 0 || i == ('n'-'a')) {
                 res = Math.min(res, arr[i]);
             } else if(i == ('l'-'a') || i == ('o'-'a')) {
