@@ -13,7 +13,6 @@ class Solution {
                 break;
             }
         }
-        System.out.print(sum);
         while(li.contains(sum)) {
             sum++;
         }
