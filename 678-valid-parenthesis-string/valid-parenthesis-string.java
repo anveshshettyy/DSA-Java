@@ -13,7 +13,7 @@ class Solution {
                 openMin--;
                 openMax--;
             } 
-            else { // '*'
+            else { 
                 openMin--;
                 openMax++;
             }
