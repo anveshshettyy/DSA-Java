@@ -1,18 +1,18 @@
 func removeOuterParentheses(s string) string {
     open := 0
-    res := ""
+    var res strings.Builder
     for _, c:= range s {
         if c == '(' {
             open++
             if open > 1 {
-                res += string(c)
+                res.WriteRune(c)
             }
         } else {
             open--
             if open > 0 {
-                res += string(c)
+                res.WriteRune(c)
             }
         }
     }
-    return res
+    return res.String()
 }
